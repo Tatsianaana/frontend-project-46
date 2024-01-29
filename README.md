@@ -7,3 +7,6 @@
 ### Flat JSON
 
 [![asciicast](https://asciinema.org/a/opzVPmSHomBRNYviQiZTFlZwz.svg)](https://asciinema.org/a/opzVPmSHomBRNYviQiZTFlZwz)
+
+### Flat YAML
+[![asciicast](https://asciinema.org/a/Tm1ah5EtgUyvtuNICOYyZVwRV.svg)](https://asciinema.org/a/Tm1ah5EtgUyvtuNICOYyZVwRV)
