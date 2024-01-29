@@ -1,5 +1,6 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Tatsianaana/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Tatsianaana/frontend-project-46/actions)
+[![Test_gendiff](https://github.com/Tatsianaana/frontend-project-46/actions/workflows/tests.yml/badge.svg)](https://github.com/Tatsianaana/frontend-project-46/actions/workflows/tests.yml)
 [![Maintainability](https://api.codeclimate.com/v1/badges/87bb35809e8d470a0f39/maintainability)](https://codeclimate.com/github/Tatsianaana/frontend-project-46/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/87bb35809e8d470a0f39/test_coverage)](https://codeclimate.com/github/Tatsianaana/frontend-project-46/test_coverage)
 
