@@ -1,25 +1,31 @@
-name: gendiff testing
+name: Test_gendiff
+
 on:
-  push:
-    branches:
-    - main
-  workflow_dispatch:
+  - push
+  - pull_request
 
 jobs:
-  testing:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: get repository
-      - uses: actions/checkout@v3
-      - name: install dependencies
-      - run: make install
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install
+        run: make install
       - name: lint
-      - run: make lint
-      - name: test
-      - run: make test
-      - name: test coverage
-      - run: make test-coverage
-      - name: publish test coverage
-      - uses: paambaati/codeclimate-action@v5.0.0
+        run: make lint
+      - name: Test
+        run: make test
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v5.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: make test-coverage
+          debug: true
