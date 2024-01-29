@@ -10,3 +10,6 @@
 
 ### Flat YAML
 [![asciicast](https://asciinema.org/a/Tm1ah5EtgUyvtuNICOYyZVwRV.svg)](https://asciinema.org/a/Tm1ah5EtgUyvtuNICOYyZVwRV)
+
+### Stylish format
+[![asciicast](https://asciinema.org/a/vQ1581DVjCfK6DIRThMM25p9u.svg)](https://asciinema.org/a/vQ1581DVjCfK6DIRThMM25p9u)
