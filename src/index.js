@@ -18,11 +18,11 @@ const getData = (filePath) => {
   return parse(data, dataFormat);
 };
 
-const genDiff = (filePath1, filePath2, formatter = 'stylish') => {
+const genDiff = (filePath1, filePath2, formatName = 'stylish') => {
   const data1 = getData(filePath1);
   const data2 = getData(filePath2);
   const diff = makeDiff(data1, data2);
-  return format(diff, formatter);
+  return format(diff, formatName);
 };
 
 export default genDiff;
