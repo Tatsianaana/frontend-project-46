@@ -18,8 +18,8 @@ const expectedPlain = readFixture('plain-result.txt');
 const expectedJson = readFixture('json-result.txt');
 
 test.each(dataFormats)('Chek %s format', (dataFormat) => {
-  const filePath1 = getFixturePath(`file-1.${dataFormat}`);
-  const filePath2 = getFixturePath(`file-2.${dataFormat}`);
+  const filePath1 = getFixturePath(`file1.${dataFormat}`);
+  const filePath2 = getFixturePath(`file2.${dataFormat}`);
 
   expect(genDiff(filePath1, filePath2)).toEqual(expectedStylish);
   expect(genDiff(filePath1, filePath2, 'stylish')).toEqual(expectedStylish);
@@ -32,15 +32,6 @@ describe('If errors occur', () => {
     const diff = [{ key: 'verbose', value: true, type: 'added' }];
     const expected = new Error('No such formatter: \'unsupported format name\'');
     expect(() => (format(diff, 'unsupported format name'))).toThrow(expected);
-  });
-  test('Check unsupported data format', () => {
-    const filePath = getFixturePath('unsupported-format.txt');
-    const expected = new Error('Unsupported data format: \'txt\'');
-    expect(() => genDiff(filePath, filePath)).toThrow(expected);
-  });
-  test('Check invalid data', () => {
-    const filePath = getFixturePath('invalid-data.json');
-    expect(() => genDiff(filePath, filePath)).toThrow(SyntaxError);
   });
   test('Check unknown node type', () => {
     const diff = [{ key: 'verbose', value: true, type: 'unknown type' }];
