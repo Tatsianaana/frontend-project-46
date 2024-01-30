@@ -4,8 +4,22 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/87bb35809e8d470a0f39/maintainability)](https://codeclimate.com/github/Tatsianaana/frontend-project-46/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/87bb35809e8d470a0f39/test_coverage)](https://codeclimate.com/github/Tatsianaana/frontend-project-46/test_coverage)
 
-### Flat JSON
+### Description
+gendiff is a Command Line Interface (CLI) application. Our program compares two configuration files. The result of comparing files can be output in different formats:
+* stylish
+* plain
+* json
+The program works with JSON (json) and YAML (yaml, yml) data formats.
 
+## Install
+```bash
+make install
+npm link
+```
+
+## How it work
+
+### Flat JSON
 [![asciicast](https://asciinema.org/a/opzVPmSHomBRNYviQiZTFlZwz.svg)](https://asciinema.org/a/opzVPmSHomBRNYviQiZTFlZwz)
 
 ### Flat YAML
@@ -16,3 +30,6 @@
 
 ### Plain format
 [![asciicast](https://asciinema.org/a/PeigXACzzA085s5TU8Vu1MBLY.svg)](https://asciinema.org/a/PeigXACzzA085s5TU8Vu1MBLY)
+
+### JSON format
+[![asciicast](https://asciinema.org/a/oiEykl4gYX9DSl9dfY8RJcqwa.svg)](https://asciinema.org/a/oiEykl4gYX9DSl9dfY8RJcqwa)
