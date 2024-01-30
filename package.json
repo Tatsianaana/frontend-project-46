@@ -4,11 +4,11 @@
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/Tatsianaana/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Tatsianaana/frontend-project-46/actions)",
   "bin": {
-    "gendiff": "bin/gendiff.js"
+    "gendiff": "./bin/gendiff.js"
   },
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
   },
   "author": "Tatsiana Nazemnova <kazachaya.tatyana@mail.ru> (https://github.com/Tatsianaana)",
   "license": "ISC",
