@@ -33,6 +33,10 @@ describe('If errors occur', () => {
     const expected = new Error('No such formatter: \'unsupported format name\'');
     expect(() => (format(diff, 'unsupported format name'))).toThrow(expected);
   });
+  test('Check invalid data', () => {
+    const filePath = getFixturePath('invalid-data.json');
+    expect(() => genDiff(filePath, filePath)).toThrow(SyntaxError);
+  });
   test('Check unknown node type', () => {
     const diff = [{ key: 'verbose', value: true, type: 'unknown type' }];
     const expected = new Error('Unknown node type: \'unknown type\'');
