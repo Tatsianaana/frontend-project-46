@@ -5,7 +5,7 @@ import parse from './parsers.js';
 import makeDiff from './makeDiff.js';
 import format from './formatters/index.js';
 
-const getAbsolutePath = (filePath) => path.resolve(process.cwd(), filePath);
+const getAbsolutePath = (filePath) => path.resolve(process.cwd(), '../__fixtures__', filePath);
 
 const excludeFormat = (filePath) => {
   const extension = path.extname(getAbsolutePath(filePath));
