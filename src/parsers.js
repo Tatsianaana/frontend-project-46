@@ -9,7 +9,7 @@ const parse = (data, dataFormat) => {
     case 'yml':
       return yaml.load(data);
     default:
-      throw new Error(`Unexpected data format ${dataFormat}`);
+      throw new Error(`Unsupported data format ${dataFormat}`);
   }
 };
 
