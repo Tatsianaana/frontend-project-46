@@ -2,9 +2,6 @@ import path from 'node:path';
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import genDiff from '../src/index.js';
-import format from '../src/formatters/index.js';
-import formatStylish from '../src/formatters/stylish.js';
-import formatPlain from '../src/formatters/plain.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
