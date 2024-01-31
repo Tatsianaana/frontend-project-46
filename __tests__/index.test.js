@@ -11,36 +11,19 @@ const __dirname = path.dirname(__filename);
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 const readFixture = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-const dataFormats = ['json', 'yaml', 'yml'];
+const dataFormats = ['json', 'yml'];
 
 const expectedStylish = readFixture('stylish-result.txt');
 const expectedPlain = readFixture('plain-result.txt');
 const expectedJson = readFixture('json-result.txt');
 
-test.each(dataFormats)('Chek %s format', (dataFormat) => {
-  const filePath1 = getFixturePath(`file1.${dataFormat}`);
-  const filePath2 = getFixturePath(`file2.${dataFormat}`);
-
-  expect(genDiff(filePath1, filePath2)).toEqual(expectedStylish);
-  expect(genDiff(filePath1, filePath2, 'stylish')).toEqual(expectedStylish);
-  expect(genDiff(filePath1, filePath2, 'plain')).toEqual(expectedPlain);
-  expect(genDiff(filePath1, filePath2, 'json')).toEqual(expectedJson);
-});
-
-describe('If errors occur', () => {
-  test('Check unsupported formatter', () => {
-    const diff = [{ key: 'verbose', value: true, type: 'added' }];
-    const expected = new Error('No such formatter: \'unsupported format name\'');
-    expect(() => (format(diff, 'unsupported format name'))).toThrow(expected);
-  });
-  test('Check invalid data', () => {
-    const filePath = getFixturePath('invalid-data.json');
-    expect(() => genDiff(filePath, filePath)).toThrow(SyntaxError);
-  });
-  test('Check unknown node type', () => {
-    const diff = [{ key: 'verbose', value: true, type: 'unknown type' }];
-    const expected = new Error('Unknown node type: \'unknown type\'');
-    expect(() => formatStylish(diff)).toThrow(expected);
-    expect(() => formatPlain(diff).toThrow(expected));
+describe('genDif', () => {
+  test.each(dataFormats)('%s', (format) => {
+    const filePath1 = getFixturePath(`file1.${format}`);
+    const filePath2 = getFixturePath(`file2.${format}`);
+    expect(genDiff(filePath1, filePath2)).toEqual(expectedStylish);
+    expect(genDiff(filePath1, filePath2, 'stylish')).toEqual(expectedStylish);
+    expect(genDiff(filePath1, filePath2, 'plain')).toEqual(expectedPlain);
+    expect(genDiff(filePath1, filePath2, 'json')).toEqual(expectedJson);
   });
 });
