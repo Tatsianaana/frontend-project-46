@@ -2,11 +2,11 @@
   "name": "@hexlet/code",
   "type": "module",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/Tatsianaana/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Tatsianaana/frontend-project-46/actions)",
+  "description": "Console-based app for generating diff between config files. Supported formats: JSON, YAML.",
+  "main": "./src/index.js",
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
-  "main": "src/index.js",
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest"
   },
