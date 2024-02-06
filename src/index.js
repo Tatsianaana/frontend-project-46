@@ -7,12 +7,14 @@ import format from './formatters/index.js';
 const getAbsolutePath = (filePath) => path.resolve(process.cwd(), filePath);
 
 const excludeFormat = (filePath) => {
-  const extension = path.extname(getAbsolutePath(filePath)).slice(1);
+  const absolutePath = getAbsolutePath(filePath);
+  const extension = path.extname(absolutePath).slice(1);
   return extension;
 };
 
 const getData = (filePath) => {
-  const data = fs.readFileSync(getAbsolutePath(filePath), 'utf-8');
+  const absolutePath = getAbsolutePath(filePath);
+  const data = fs.readFileSync(absolutePath, 'utf-8');
   const dataFormat = excludeFormat(filePath);
   return parse(data, dataFormat);
 };
