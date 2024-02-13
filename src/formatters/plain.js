@@ -17,19 +17,18 @@ const formatPlain = (diff) => {
       .filter((node) => node.type !== 'unchanged')
       .map((node) => {
         const currentPath = buildPath(path, node.key);
-        if (node.type === 'deleted') {
-          return `Property '${currentPath}' was removed`;
+        switch (node.type) {
+          case 'deleted':
+            return `Property '${currentPath}' was removed`;
+          case 'added':
+            return `Property '${currentPath}' was added with value: ${stringify(node.value)}`;
+          case 'nested':
+            return iter(node.children, currentPath);
+          case 'changed':
+            return `Property '${currentPath}' was updated. From ${stringify(node.value1)} to ${stringify(node.value2)}`;
+          default:
+            throw new Error(`Unknown node type: '${node.type}'`);
         }
-        if (node.type === 'added') {
-          return `Property '${currentPath}' was added with value: ${stringify(node.value)}`;
-        }
-        if (node.type === 'nested') {
-          return iter(node.children, currentPath);
-        }
-        if (node.type === 'changed') {
-          return `Property '${currentPath}' was updated. From ${stringify(node.value1)} to ${stringify(node.value2)}`;
-        }
-        throw new Error(`Unknown node type: '${node.type}'`);
       });
     return result.join(separator);
   };
