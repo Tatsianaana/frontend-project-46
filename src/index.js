@@ -6,7 +6,7 @@ import format from './formatters/index.js';
 
 const getAbsolutePath = (filePath) => path.resolve(process.cwd(), filePath);
 
-const excludeFormat = (filePath) => {
+const getFormat = (filePath) => {
   const absolutePath = getAbsolutePath(filePath);
   const extension = path.extname(absolutePath).slice(1);
   return extension;
@@ -15,7 +15,7 @@ const excludeFormat = (filePath) => {
 const getData = (filePath) => {
   const absolutePath = getAbsolutePath(filePath);
   const data = fs.readFileSync(absolutePath, 'utf-8');
-  const dataFormat = excludeFormat(filePath);
+  const dataFormat = getFormat(filePath);
   return parse(data, dataFormat);
 };
 
